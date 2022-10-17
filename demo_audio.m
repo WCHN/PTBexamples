@@ -9,8 +9,9 @@ if PsychPortAudio('GetOpenDeviceCount')                 % check to see if a Port
     PsychPortAudio('Close');                            % ...and close it if necessary
 end
 paudio = PsychPortAudio('Open');                        % open default sound playback device using lowest latency interface
-PortAudioStatus = PsychPortAudio('GetStatus',paudio);   % Get audio device status
-fs = PortAudioStatus.SampleRate;                        % ...extract sample rate
+status = PsychPortAudio('GetStatus',paudio);            % Get audio device status
+fs = status.SampleRate;                                 % ...extract sample rate
+disp(['Using API ' audiodevlist(status.OutDeviceIndex).HostAudioAPIName ' on device ' audiodevlist(status.OutDeviceIndex).DeviceName])
 
 %% Stimulus setup
 duration = 2;                                           % set sound stimulus duration (seconds)
@@ -19,8 +20,7 @@ PsychPortAudio('FillBuffer',paudio,wav);                % load stimulus into sou
 
 %% Play stimulus
 PsychPortAudio('Start',paudio, 1,0,1);                  % play stimulus and save start time
-[tstart,~,~,tstop] = PsychPortAudio('Stop',paudio,3,1)  % ... and wait until the sound stops playing
-
+[tstart,~,~,tstop] = PsychPortAudio('Stop',paudio,3,1); % ... and wait until the sound stops playing
 tstop-tstart                                            % display sound duration
 
 %% Tidy up & end
