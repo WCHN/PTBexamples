@@ -3,6 +3,7 @@
 
 %% PsychToolbox basic setup
 PsychDefaultSetup(2);                                   % apply common Psychtoolbox parameters
+InitializePsychSound;                                   % initialize Psychtoolbox audio
 
 %% Sound setup
 if PsychPortAudio('GetOpenDeviceCount')                 % check to see if a PortAudio device is still open...
@@ -11,7 +12,6 @@ end
 paudio = PsychPortAudio('Open');                        % open default sound playback device using lowest latency interface
 status = PsychPortAudio('GetStatus',paudio);            % Get audio device status
 fs = status.SampleRate;                                 % ...extract sample rate
-disp(['Using API ' audiodevlist(status.OutDeviceIndex).HostAudioAPIName ' on device ' audiodevlist(status.OutDeviceIndex).DeviceName])
 
 %% Stimulus setup
 duration = 2;                                           % set sound stimulus duration (seconds)

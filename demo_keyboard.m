@@ -17,20 +17,17 @@ scn = max(Screen('Screens'));                       % find second screen if conn
 [x0,y0] = RectCenter(wRect);                        % find the centre of the window
 
 %% Wait for keypresses
-Screen('FillRect', pWin);                           % fill window with default backgroound colour
 Screen('TextFont', pWin, 'Arial');                  % Set typeface
 Screen('TextSize', pWin, 30);                       % Set fontsize
 Screen('TextStyle',pWin, 0);                        % Set style as sum of: Normal=0, bold=1, italic=2, underline=4, outline=8, condense=32, extend=64
-Screen('DrawText', pWin,'Please press left', x0,y0);% Draw the text @ x,y
+Screen('FillRect', pWin);                           % fill window with default backgroound colour
+Screen('DrawText', pWin,'Please press left', x0-100,y0);% Draw the text @ x,y
 Screen('Flip', pWin);                               % Display the window
 [t,keycode,~] = KbPressWait;                        % Wait for key press
 keyleft = find(keycode);                            % Extract and save key code
 
 Screen('FillRect', pWin);                           % fill window with default backgroound colour
-Screen('TextFont', pWin, 'Arial');                  % Set typeface
-Screen('TextSize', pWin, 30);                       % Set fontsize
-Screen('TextStyle',pWin, 0);                        % Set style as sum of: Normal=0, bold=1, italic=2, underline=4, outline=8, condense=32, extend=64
-Screen('DrawText', pWin,'Please press right',x0,y0);% Draw the text @ x,y
+Screen('DrawText', pWin,'Please press right',x0-100,y0);% Draw the text @ x,y
 Screen('Flip', pWin);                               % Display the window
 [t,keycode,~] = KbPressWait;                        % Wait for key press
 keyright = find(keycode);                           % Extract and save key code

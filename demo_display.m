@@ -16,12 +16,19 @@ scn = max(Screen('Screens'));                   % find second screen if connecte
 
 %% Use screen
 
-% Text
+% Text style
 Screen('FillRect', pWin);                       % fill window with default backgroound colour
 Screen('TextFont', pWin, 'Arial');              % Set typeface
 Screen('TextSize', pWin, 30);                   % Set fontsize
 Screen('TextStyle', pWin, 0);                   % Set style as sum of: Normal=0, bold=1, italic=2, underline=4, outline=8, condense=32, extend=64
-Screen('DrawText', pWin, 'Your text here' , x0,y0); % Draw the text @ x,y
+% Text i
+Screen('DrawText', pWin, 'Simplest draw text' , x0,y0); % Draw the text @ x,y
+Screen('Flip', pWin);                           % Display the window
+WaitSecs(3);                                    % for 3 seconds
+% Text ii
+txt = 'Example centre-aligned multiline text, \n for example an instruction\n screen';
+vSpacing = 1.5;                                 % line spacing
+DrawFormattedText(pWin,txt,'center','center',[],[],[],[],vSpacing);
 Screen('Flip', pWin);                           % Display the window
 WaitSecs(3);                                    % for 3 seconds
 
@@ -29,7 +36,7 @@ WaitSecs(3);                                    % for 3 seconds
 im = imread('Mosquito.bmp');                    % read an image file
 Screen('PutImage', pWin, im);                   % and load into window
 Screen('Flip', pWin);                           % Display the window
-pause(3)                                        % for 3 seconds
+WaitSecs(3)                                     % for 3 seconds
 
 %% Tidy up & end
 Screen('Close',pWin)                            % close display window. Atlernatively: Screen('CloseAll')

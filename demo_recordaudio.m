@@ -3,17 +3,15 @@
 
 %% PsychToolbox basic setup
 PsychDefaultSetup(2);                                   % apply common Psychtoolbox parameters
+InitializePsychSound;                                   % initialize Psychtoolbox audio
 
 %% Sound setup
 if PsychPortAudio('GetOpenDeviceCount')                 % check to see if a PortAudio device is still open...
     PsychPortAudio('Close');                            % ...and close it
 end
-audiodevlist=PsychPortAudio('GetDevices');
 paudio = PsychPortAudio('Open',[],2);                   % open default sound capture device using lowest latency interface
 status = PsychPortAudio('GetStatus',paudio);            % Get audio device status
 fs = status.SampleRate;                                 % ...extract sample rate
-                                                        % Display the audio device and API in use
-disp(['Using API ' audiodevlist(status.InDeviceIndex).HostAudioAPIName ' on device ' audiodevlist(status.InDeviceIndex).DeviceName])
 
 %% Recording setup
 duration = 5;                                           % set sound capture duration (secs)
