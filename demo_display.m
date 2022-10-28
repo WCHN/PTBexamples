@@ -11,7 +11,7 @@ PsychDefaultSetup(2);                           % apply common Psychtoolbox para
 Screen('Preference', 'SkipSyncTests', 1);       % suppress warnings about VBL timing
 scn = max(Screen('Screens'));                   % find second screen if connected
 [pWin,wRect] = Screen('OpenWindow',scn);        % open a display window
-[width,height] = Screen('WindowSize',pWin);     % find window width & height
+[wWidth,wHeight] = Screen('WindowSize',pWin);   % find window width & height
 [x0,y0] = RectCenter(wRect);                    % find the centre of the window
 
 %% Use screen
@@ -22,11 +22,11 @@ Screen('TextFont', pWin, 'Arial');              % Set typeface
 Screen('TextSize', pWin, 30);                   % Set fontsize
 Screen('TextStyle', pWin, 0);                   % Set style as sum of: Normal=0, bold=1, italic=2, underline=4, outline=8, condense=32, extend=64
 % Text i
-Screen('DrawText', pWin, 'Simplest draw text' , x0,y0); % Draw the text @ x,y
+Screen('DrawText',pWin,'Basic DrawText',x0,y0); % Draw the text @ x,y
 Screen('Flip', pWin);                           % Display the window
 WaitSecs(3);                                    % for 3 seconds
 % Text ii
-txt = 'Example centre-aligned multiline text, \n for example an instruction\n screen';
+txt = 'Centre-aligned multi-line text,\nwith forced line breaks\nFor example, an \ninstruction screen';
 vSpacing = 1.5;                                 % line spacing
 DrawFormattedText(pWin,txt,'center','center',[],[],[],[],vSpacing);
 Screen('Flip', pWin);                           % Display the window
