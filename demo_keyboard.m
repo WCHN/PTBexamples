@@ -1,5 +1,7 @@
 %% Very basic keyboard demo
 % Displays a message & waits for a keypress - twice
+%
+% See also: http://psychtoolbox.org/docs/KbDemo
 
 %% PsychToolbox basic setup
 PsychDefaultSetup(2);                                       % apply common Psychtoolbox parameters
