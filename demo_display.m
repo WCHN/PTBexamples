@@ -6,9 +6,9 @@
 
 %% PsychToolbox basic setup
 PsychDefaultSetup(2);                           % apply common Psychtoolbox parameters
+Screen('Preference', 'SkipSyncTests', 1);       % suppress warnings about VBL timing
 
 %% Screen setup & open
-Screen('Preference', 'SkipSyncTests', 1);       % suppress warnings about VBL timing
 scn = max(Screen('Screens'));                   % find second screen if connected
 [pWin,wRect] = Screen('OpenWindow',scn);        % open a display window
 [wWidth,wHeight] = Screen('WindowSize',pWin);   % find window width & height
