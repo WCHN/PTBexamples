@@ -1,6 +1,6 @@
 %% Very basic scanner trigger demo
-% Waits for 5 scanner triggers - printing a message to the Matlab command
-% window for each trigger
+% Waits for 5 Vol3ms triggers - printing a message to 
+% the Matlab command window for each trigger
 
 %% Scan parameters
 ndummies = 5;                                           % number of dummy volumes to wait for

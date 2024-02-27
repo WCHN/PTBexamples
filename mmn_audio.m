@@ -11,7 +11,7 @@ audioduration = 0.5;                                        % set sound stimulus
 audiovol = 0.5;                                             % sound volume
 
 %% Hardware parameters
-usingserial = true;                                         % true or false for serial or '5' triggers
+usingserial = false;                                         % true or false for serial or '5' triggers
 port = 1;                                                   % serial port for triggers
 baudrate = 14400;                                           % serial port rate
 if usingserial; start_serial; end                           % open/start serial port
@@ -66,7 +66,7 @@ ismismatch = rand(1,ntrials)<mismatch_probability;          % generate list of t
 %% Wait for scanner
 disp('Waiting for scanner')
 if usingserial
-    [s0,t0] = waitslice(port,dummies*slicespervol+1);       % wait for scanner serial trigger
+    [s0,t0] = waitslice(port,ndummies*slicespervol+1);      % wait for scanner serial trigger
 else
     RestrictKeysForKbCheck(KbName('5'));                    % restrict the keys for just the scanner trigger
     for n=1:ndummies                                        % wait for dummy volumes
