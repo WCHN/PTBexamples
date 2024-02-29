@@ -1,10 +1,11 @@
-%% Very basic scanner trigger demo
-% Waits for 5 Vol3ms triggers - printing a message to 
-% the Matlab command window for each volume
+%% Demo for "Vol3ms" type scanner triggers
+% Trigger type is found on the MRI sequence card
+% special tab, "Trigger type" setting
 %
-% NB Do NOT use KbTriggerWait() with "Slice3ms" triggers - it misses every
-% second trigger !! Use KbWait() / KbPressWait() etc
-
+% NB
+% For "Vol3ms" triggers use KbTriggerWait()
+% For "Slice3ms" triggers use Use KbWait() / KbPressWait() etc DO NOT use KbTriggerWait()
+%     It misses every second trigger !!
 
 %% Scan parameters
 ndummies = 5;                                           % number of dummy volumes to wait for

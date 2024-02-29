@@ -16,6 +16,8 @@ demo_movie.m : Basic play movie file
 
 demo_recordaudio.m : Basic record audio
 
+demo_trigger_Cogent.m : Basic wait for "Cogent" serial triggers
+
 demo_trigger_Slice3ms.m : Basic wait for dummy volumes with "Slice3ms" triggers
 
                         NB DO NOT use KbTriggerWait() with "Slice3ms" triggers!
